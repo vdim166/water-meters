@@ -1,13 +1,13 @@
-import { observer } from "mobx-react-lite"
-import { useStore } from "../models/RootState"
-import List from "./List"
-import "./Table.css"
-import { Loader } from "./Loader"
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../models/RootState';
+import List from './List';
+import './Table.css';
+import { Loader } from './Loader';
 
 const Table = observer(() => {
-  const store = useStore()
+  const store = useStore();
 
-  if (store.isLoading) return <Loader />
+  if (store.isLoading) return <Loader />;
 
   return (
     <div className="overflow-x-auto rounded-t-lg max-h-[900px]">
@@ -39,7 +39,7 @@ const Table = observer(() => {
         </tbody>
       </table>
     </div>
-  )
-})
+  );
+});
 
-export default Table
+export default Table;

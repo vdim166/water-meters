@@ -24,27 +24,27 @@
 }
 
 .img-el.tpl {
-  background-image: url("../assets/tpl.png");
+  background-image: url('../assets/tpl.png');
 }
 
 .img-el.eldt {
-  background-image: url("../assets/eldt.png");
+  background-image: url('../assets/eldt.png');
 }
 
 .img-el.hvs {
-  background-image: url("../assets/hvs.png");
+  background-image: url('../assets/hvs.png');
 }
 
 .img-el.gvs {
-  background-image: url("../assets/gvs.png");
+  background-image: url('../assets/gvs.png');
 }
 
 .img-el.trash {
-  background-image: url("../assets/trash1.png");
+  background-image: url('../assets/trash1.png');
 }
 .img-el.trash-hovering {
-  background-image: url("../assets/trash2.png");
+  background-image: url('../assets/trash2.png');
 }
 .img-el.trash-disabled {
-  background-image: url("../assets/trash3.png");
+  background-image: url('../assets/trash3.png');
 }

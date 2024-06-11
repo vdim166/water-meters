@@ -1,23 +1,23 @@
-import { useState } from "react"
+import { useState } from 'react';
 
 type TrashButtonProps = {
-  isDisabled: boolean
-  show: boolean
-}
+  isDisabled: boolean;
+  show: boolean;
+};
 
 export const TrashButton = ({ show, isDisabled }: TrashButtonProps) => {
-  const [isHovering, setHovering] = useState(false)
+  const [isHovering, setHovering] = useState(false);
 
   const calcStyles = () => {
     if (isDisabled) {
-      return "trash-disabled"
+      return 'trash-disabled';
     }
     if (isHovering) {
-      return "trash-hovering"
+      return 'trash-hovering';
     }
 
-    return "trash"
-  }
+    return 'trash';
+  };
 
   return (
     <div
@@ -25,10 +25,10 @@ export const TrashButton = ({ show, isDisabled }: TrashButtonProps) => {
       onMouseLeave={() => setHovering(false)}
       className="p-2 text-white trash-button"
       style={{
-        visibility: show ? "visible" : "hidden",
+        visibility: show ? 'visible' : 'hidden',
       }}
     >
       <span className={`img-el  ${calcStyles()}`}></span>
     </div>
-  )
-}
+  );
+};

@@ -1,18 +1,16 @@
-import { useEffect } from "react"
-import Pagination from "./Pagination"
-import Table from "./Table"
-import Header from "./Header"
-import { useStore } from "../models/RootState"
-import { observer } from "mobx-react-lite"
-
-// TODO: prettier
+import { useEffect } from 'react';
+import Pagination from './Pagination';
+import Table from './Table';
+import Header from './Header';
+import { useStore } from '../models/RootState';
+import { observer } from 'mobx-react-lite';
 
 const MainComponent = observer(() => {
-  const store = useStore()
+  const store = useStore();
 
   useEffect(() => {
-    store.fetchMeters()
-  }, [store.currentPage])
+    store.fetchMeters();
+  }, [store.currentPage]);
 
   return (
     <div className="container mx-auto p-4">
@@ -24,7 +22,7 @@ const MainComponent = observer(() => {
         onPageChange={store.setPage}
       />
     </div>
-  )
-})
+  );
+});
 
-export default MainComponent
+export default MainComponent;

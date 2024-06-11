@@ -1,6 +1,6 @@
-import { t, flow, Instance } from "mobx-state-tree"
-import { areaDataType } from "../Types"
-import { MeterModel } from "./MeterModel"
+import { t, flow, Instance } from 'mobx-state-tree';
+import { areaDataType } from '../Types';
+import { MeterModel } from './MeterModel';
 
 const RootStore = t
   .model({
@@ -12,57 +12,57 @@ const RootStore = t
   })
   .actions((self) => {
     const fetchMeters = flow(function* fetchMeters() {
-      self.isLoading = true
-      const offset = 20
+      self.isLoading = true;
+      const offset = 20;
       const response = yield fetch(
         `http://showroom.eis24.me/api/v4/test/meters/?limit=20&offset=${
           (self.currentPage - 1) * offset
         }`
-      )
-      const data = yield response.json()
-      self.totalPages = Math.ceil(data.count / 20)
+      );
+      const data = yield response.json();
+      self.totalPages = Math.ceil(data.count / 20);
 
-      const result = []
+      const result = [];
 
       for (let meter of data.results) {
         if (self.addresses.has(meter.area.id)) {
           //оптимизация
-          result.push({ ...meter, address: self.addresses.get(meter.area.id) })
-          continue
+          result.push({ ...meter, address: self.addresses.get(meter.area.id) });
+          continue;
         }
 
         const areaResponse = yield fetch(
           `http://showroom.eis24.me/api/v4/test/areas/?id__in=${meter.area.id}`
-        )
-        const areaData: areaDataType = yield areaResponse.json()
+        );
+        const areaData: areaDataType = yield areaResponse.json();
 
         areaData.results.forEach((area) => {
-          const address = `${area.house.address}, ${area.str_number_full}`
-          result.push({ ...meter, address })
-          self.addresses.set(area.id, address)
-        })
+          const address = `${area.house.address}, ${area.str_number_full}`;
+          result.push({ ...meter, address });
+          self.addresses.set(area.id, address);
+        });
       }
 
-      self.meters.replace(result)
-      self.isLoading = false
-    })
+      self.meters.replace(result);
+      self.isLoading = false;
+    });
 
     const setPage = (page: number) => {
-      self.currentPage = page
-      fetchMeters()
-    }
+      self.currentPage = page;
+      fetchMeters();
+    };
 
-    return { fetchMeters, setPage }
-  })
+    return { fetchMeters, setPage };
+  });
 
-export type RootStoreType = Instance<typeof RootStore>
+export type RootStoreType = Instance<typeof RootStore>;
 
-let rootStore: RootStoreType
+let rootStore: RootStoreType;
 
 export function useStore() {
   if (!rootStore) {
-    rootStore = RootStore.create({})
+    rootStore = RootStore.create({});
   }
 
-  return rootStore
+  return rootStore;
 }

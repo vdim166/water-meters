@@ -1,4 +1,4 @@
-import { Instance, t } from "mobx-state-tree"
+import { Instance, t } from 'mobx-state-tree';
 
 export const MeterModel = t.model({
   id: t.identifier,
@@ -10,7 +10,7 @@ export const MeterModel = t.model({
   area: t.model({
     id: t.string,
   }),
-  address: t.optional(t.string, ""),
-})
+  address: t.optional(t.string, ''),
+});
 
-export type MeterModelType = Instance<typeof MeterModel>
+export type MeterModelType = Instance<typeof MeterModel>;

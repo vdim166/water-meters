@@ -1,11 +1,11 @@
-import MainComponent from "./components/Main"
+import MainComponent from './components/Main';
 
 function App() {
   return (
     <div className="App">
       <MainComponent />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
