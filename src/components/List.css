@@ -1,0 +1,50 @@
+.list-element:hover {
+  background-color: #f7f8f9;
+}
+
+.trash-button {
+  background-color: #fee3e3;
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+}
+
+.trash-button:hover {
+  background-color: #fed7d7;
+}
+
+.img-el {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+}
+
+.list-desc {
+  color: #697180;
+}
+
+.img-el.tpl {
+  background-image: url("../assets/tpl.png");
+}
+
+.img-el.eldt {
+  background-image: url("../assets/eldt.png");
+}
+
+.img-el.hvs {
+  background-image: url("../assets/hvs.png");
+}
+
+.img-el.gvs {
+  background-image: url("../assets/gvs.png");
+}
+
+.img-el.trash {
+  background-image: url("../assets/trash1.png");
+}
+.img-el.trash-hovering {
+  background-image: url("../assets/trash2.png");
+}
+.img-el.trash-disabled {
+  background-image: url("../assets/trash3.png");
+}
