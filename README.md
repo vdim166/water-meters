@@ -1,3 +1,20 @@
+Стэк: React, Typescript, mobx-state-tree, tailwind
+
+## Уточнение:
+
+При удалении счетчика на странице всегда должно оставаться 20 элементов.
+Учитывая то, что в Figma кнопка "Корзина" имела состояние disabled, я сделал так, что счетчик при удалении остается на странице, но становится заблокированным, как на 4-й картинке.
+В случае, если счетчик должен быть удален, необходимо:
+
+- обернуть List в observer;
+- получить store: const store = useStore();
+- вызвать store.fetchMeters() после получения ответа от сервера.
+
+![Alt text](./images/1.png?raw=true 'Title')
+![Alt text](./images/2.png?raw=true 'Title')
+![Alt text](./images/3.png?raw=true 'Title')
+![Alt text](./images/4.png?raw=true 'Title')
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
